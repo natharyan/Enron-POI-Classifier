@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from feature_format import featureFormat, targetFeatureSplit
-from tester import dump_classifier_and_data
+# from tester import dump_classifier_and_data
 
 from sklearn.feature_selection import SelectKBest
 from sklearn.metrics import classification_report,confusion_matrix
@@ -179,12 +179,12 @@ print(classification_report(labels_test,pred))
 #    macro avg       0.76      0.72      0.74        42
 # weighted avg       0.87      0.88      0.88        42
 
-from sklearn.svm import SVC
-clf = SVC(random_state=0)
-clf.fit(features_train,labels_train)
-print("Support Vector Classification")
-pred = clf.predict(features_test)
-print(classification_report(labels_test,pred))
+# from sklearn.svm import SVC
+# clf = SVC(random_state=0)
+# clf.fit(features_train,labels_train)
+# print("Support Vector Classification")
+# pred = clf.predict(features_test)
+# print(classification_report(labels_test,pred))
 
 
 from sklearn.tree import DecisionTreeClassifier
@@ -204,12 +204,12 @@ print(classification_report(labels_test,pred))
 # weighted avg       0.88      0.86      0.87        42
 
 
-from sklearn.ensemble import RandomForestClassifier
-clf = RandomForestClassifier(random_state=0,max_depth=2)
-clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-print("Random Forest Classifier")
-print(classification_report(labels_test,pred))
+# from sklearn.ensemble import RandomForestClassifier
+# clf = RandomForestClassifier(random_state=0,max_depth=2)
+# clf.fit(features_train,labels_train)
+# pred = clf.predict(features_test)
+# print("Random Forest Classifier")
+# print(classification_report(labels_test,pred))
 
 #               precision    recall  f1-score   support
 
@@ -221,11 +221,11 @@ print(classification_report(labels_test,pred))
 # weighted avg       0.91      0.90      0.88        42
 
 from sklearn.neighbors import KNeighborsClassifier
-clf = KNeighborsClassifier(n_neighbors=3)
-clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-print("Classifier Implementing the K-Nearest Neighbors Vote:")
-print(classification_report(labels_test,pred))
+# clf = KNeighborsClassifier(n_neighbors=3)
+# clf.fit(features_train,labels_train)
+# pred = clf.predict(features_test)
+# print("Classifier Implementing the K-Nearest Neighbors Vote:")
+# print(classification_report(labels_test,pred))
 
 #               precision    recall  f1-score   support
 
@@ -237,11 +237,11 @@ print(classification_report(labels_test,pred))
 # weighted avg       0.91      0.90      0.88        42
 
 from sklearn.ensemble import AdaBoostClassifier
-clf = AdaBoostClassifier(n_estimators=40, random_state=0)
-clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-print("AdaBoost Classifier:")
-print(classification_report(labels_test,pred))
+# clf = AdaBoostClassifier(n_estimators=40, random_state=0)
+# clf.fit(features_train,labels_train)
+# pred = clf.predict(features_test)
+# print("AdaBoost Classifier:")
+# print(classification_report(labels_test,pred))
 
 #               precision    recall  f1-score   support
 
@@ -294,35 +294,35 @@ def bestParams(clf,cv,param_grid,score):
 
 print("Parameter Tuned Classifiers:")
 
-print("\nDecision Tree Classifer:")
+# print("\nDecision Tree Classifer:")
 
-clf = DecisionTreeClassifier()
+# clf = DecisionTreeClassifier()
 
-param_grid = [{'criterion': ['gini'],
-  'splitter': ['best'],
-  'max_depth': [None, 1, 2, 3, 4, 5],
-  'min_samples_split': [2, 5, 10],
-  'min_samples_leaf': [1, 2, 4],
-  'random_state': [0, 42, 123]},
- {'criterion': ['entropy'],
-  'splitter': ['best'],
-  'max_depth': [None, 1, 2, 3, 4, 5],
-  'min_samples_split': [2, 5, 10],
-  'min_samples_leaf': [1, 2, 4],
-  'random_state': [0, 42, 123]},
-  {'criterion': ['gini'],
-  'splitter': ['random'],
-  'max_depth': [None, 1, 2, 3, 4, 5],
-  'min_samples_split': [2, 5, 10],
-  'min_samples_leaf': [1, 2, 4],
-  'random_state': [0, 42, 123]}]
+# param_grid = [{'criterion': ['gini'],
+#   'splitter': ['best'],
+#   'max_depth': [None, 1, 2, 3, 4, 5],
+#   'min_samples_split': [2, 5, 10],
+#   'min_samples_leaf': [1, 2, 4],
+#   'random_state': [0, 42, 123]},
+#  {'criterion': ['entropy'],
+#   'splitter': ['best'],
+#   'max_depth': [None, 1, 2, 3, 4, 5],
+#   'min_samples_split': [2, 5, 10],
+#   'min_samples_leaf': [1, 2, 4],
+#   'random_state': [0, 42, 123]},
+#   {'criterion': ['gini'],
+#   'splitter': ['random'],
+#   'max_depth': [None, 1, 2, 3, 4, 5],
+#   'min_samples_split': [2, 5, 10],
+#   'min_samples_leaf': [1, 2, 4],
+#   'random_state': [0, 42, 123]}]
 
-bestParameters = bestParams(clf,10,param_grid,"recall")
-clf = DecisionTreeClassifier(**bestParameters)
-clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-print(classification_report(labels_test,pred))
-print(confusion_matrix(labels_test,pred))
+# bestParameters = bestParams(clf,10,param_grid,"recall")
+# clf = DecisionTreeClassifier(**bestParameters)
+# clf.fit(features_train,labels_train)
+# pred = clf.predict(features_test)
+# print(classification_report(labels_test,pred))
+# print(confusion_matrix(labels_test,pred))
 
 
 print("\nAdaBoost Classifier:")
@@ -343,48 +343,48 @@ print(classification_report(labels_test,pred))
 print(confusion_matrix(labels_test,pred))
 
 
-print("\nRandom Forest Classifier:")
-clf = RandomForestClassifier()
+# print("\nRandom Forest Classifier:")
+# clf = RandomForestClassifier()
 
-param_grid = [{'n_estimators': [10, 50, 100, 200],
-  'criterion': ['gini', 'entropy'],
-  'max_depth': [None, 5, 10, 15, 20],
-  'min_samples_split': [2, 5, 10],
-  'min_samples_leaf': [1, 2, 4],
-  'random_state': [0, 42, 123]},
- {'n_estimators': [10, 50, 100, 200],
-  'criterion': ['gini', 'entropy'],
-  'max_depth': [None, 25, 30, 35, 40],
-  'min_samples_split': [2, 5, 10],
-  'min_samples_leaf': [1, 2, 4],
-  'random_state': [0, 42, 123]}]
+# param_grid = [{'n_estimators': [10, 50, 100, 200],
+#   'criterion': ['gini', 'entropy'],
+#   'max_depth': [None, 5, 10, 15, 20],
+#   'min_samples_split': [2, 5, 10],
+#   'min_samples_leaf': [1, 2, 4],
+#   'random_state': [0, 42, 123]},
+#  {'n_estimators': [10, 50, 100, 200],
+#   'criterion': ['gini', 'entropy'],
+#   'max_depth': [None, 25, 30, 35, 40],
+#   'min_samples_split': [2, 5, 10],
+#   'min_samples_leaf': [1, 2, 4],
+#   'random_state': [0, 42, 123]}]
 
-bestParameters = bestParams(clf,10,param_grid,"recall")
-clf = RandomForestClassifier(**bestParameters)
-clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-print(classification_report(labels_test,pred))
-print(confusion_matrix(labels_test,pred))
+# bestParameters = bestParams(clf,10,param_grid,"recall")
+# clf = RandomForestClassifier(**bestParameters)
+# clf.fit(features_train,labels_train)
+# pred = clf.predict(features_test)
+# print(classification_report(labels_test,pred))
+# print(confusion_matrix(labels_test,pred))
 
 
-print("\nClassifier Implementing the K-Nearest Neighbors Vote:")
-clf = KNeighborsClassifier()
+# print("\nClassifier Implementing the K-Nearest Neighbors Vote:")
+# clf = KNeighborsClassifier()
 
-param_grid = [{'n_neighbors': [3, 5, 7, 9, 11],
-  'weights': ['uniform', 'distance'],
-  'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
-  'p': [1, 2]},
- {'n_neighbors': [13, 15, 17, 19, 21],
-  'weights': ['uniform', 'distance'],
-  'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
-  'p': [1, 2]}]
+# param_grid = [{'n_neighbors': [3, 5, 7, 9, 11],
+#   'weights': ['uniform', 'distance'],
+#   'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+#   'p': [1, 2]},
+#  {'n_neighbors': [13, 15, 17, 19, 21],
+#   'weights': ['uniform', 'distance'],
+#   'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+#   'p': [1, 2]}]
 
-bestParameters = bestParams(clf,10,param_grid,"recall")
-clf = KNeighborsClassifier(**bestParameters)
-clf.fit(features_train,labels_train)
-pred = clf.predict(features_test)
-print(classification_report(labels_test,pred))
-print(confusion_matrix(labels_test,pred))
+# bestParameters = bestParams(clf,10,param_grid,"recall")
+# clf = KNeighborsClassifier(**bestParameters)
+# clf.fit(features_train,labels_train)
+# pred = clf.predict(features_test)
+# print(classification_report(labels_test,pred))
+# print(confusion_matrix(labels_test,pred))
 
 ### Task 6: Dump your classifier, dataset, and features_list so anyone can
 ### check your results. You do not need to change anything below, but make sure
